@@ -3,10 +3,10 @@ import { Redirect, RouteComponentProps } from 'react-router'
 import { repoSettingsAreaRoutes } from '../../../repo/settings/routes'
 import { RepoSettingsAreaRoute } from '../../../repo/settings/RepoSettingsArea'
 import { lazyComponent } from '../../../util/lazyComponent'
-import { CodeIntelUploadsPageProps } from '../../codeintel/list/CodeIntelUploadsPage'
-import { CodeIntelIndexesPageProps } from '../../codeintel/list/CodeIntelIndexesPage'
-import { CodeIntelIndexPageProps } from '../../codeintel/detail/CodeIntelIndexPage'
-import { CodeIntelUploadPageProps } from '../../codeintel/detail/CodeIntelUploadPage'
+import { CodeIntelUploadsPageProps } from '../../codeintel/list/upload/CodeIntelUploadsPage'
+import { CodeIntelIndexesPageProps } from '../../codeintel/list/index/CodeIntelIndexesPage'
+import { CodeIntelIndexPageProps } from '../../codeintel/detail/index/CodeIntelIndexPage'
+import { CodeIntelUploadPageProps } from '../../codeintel/detail/upload/CodeIntelUploadPage'
 import { RepoSettingsPermissionsPageProps } from './RepoSettingsPermissionsPage'
 
 const RepoSettingsPermissionsPage = lazyComponent<RepoSettingsPermissionsPageProps, 'RepoSettingsPermissionsPage'>(
@@ -14,19 +14,19 @@ const RepoSettingsPermissionsPage = lazyComponent<RepoSettingsPermissionsPagePro
     'RepoSettingsPermissionsPage'
 )
 const CodeIntelUploadsPage = lazyComponent<CodeIntelUploadsPageProps, 'CodeIntelUploadsPage'>(
-    () => import('../../codeintel/list/CodeIntelUploadsPage'),
+    () => import('../../codeintel/list/upload/CodeIntelUploadsPage'),
     'CodeIntelUploadsPage'
 )
 const CodeIntelUploadPage = lazyComponent<CodeIntelUploadPageProps, 'CodeIntelUploadPage'>(
-    () => import('../../codeintel/detail/CodeIntelUploadPage'),
+    () => import('../../codeintel/detail/upload/CodeIntelUploadPage'),
     'CodeIntelUploadPage'
 )
 const CodeIntelIndexesPage = lazyComponent<CodeIntelIndexesPageProps, 'CodeIntelIndexesPage'>(
-    () => import('../../codeintel/list/CodeIntelIndexesPage'),
+    () => import('../../codeintel/list/index/CodeIntelIndexesPage'),
     'CodeIntelIndexesPage'
 )
 const CodeIntelIndexPage = lazyComponent<CodeIntelIndexPageProps, 'CodeIntelIndexPage'>(
-    () => import('../../codeintel/detail/CodeIntelIndexPage'),
+    () => import('../../codeintel/detail/index/CodeIntelIndexPage'),
     'CodeIntelIndexPage'
 )
 
