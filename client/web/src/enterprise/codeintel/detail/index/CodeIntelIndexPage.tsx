@@ -101,6 +101,7 @@ export const CodeIntelIndexPage: FunctionComponent<CodeIntelIndexPageProps> = ({
                     <CodeIntelIndexPageTitle
                         index={indexOrError}
                         actions={<CodeIntelDeleteIndex deleteIndex={deleteIndex} deletionOrError={deletionOrError} />}
+                        className="mb-2"
                     />
                     <CodeIntelStateBanner
                         state={indexOrError.state}
@@ -116,10 +117,6 @@ export const CodeIntelIndexPage: FunctionComponent<CodeIntelIndexPageProps> = ({
                             <CodeIntelIndexNode node={indexOrError} now={now} summaryView={true} />
                         </div>
                     </div>
-                    {/*
-                        TODO(efritz) - missing data
-                        Need dump file?
-                    */}
                     <Timeline node={indexOrError} now={now} className="mb-3" />
                     <DockerSteps
                         steps={indexOrError.dockerSteps.concat([

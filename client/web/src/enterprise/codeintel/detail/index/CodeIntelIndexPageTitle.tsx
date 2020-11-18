@@ -1,7 +1,5 @@
 import classNames from 'classnames'
-import CubeIcon from 'mdi-react/CubeIcon'
 import React, { FunctionComponent, ReactNode } from 'react'
-import { PageHeader } from '../../../../components/PageHeader'
 import { LsifIndexFields } from '../../../../graphql-operations'
 
 export interface CodeIntelIndexPageTitleProps {
@@ -15,17 +13,13 @@ export const CodeIntelIndexPageTitle: FunctionComponent<CodeIntelIndexPageTitleP
     actions,
     className,
 }) => (
-    <PageHeader
-        icon={CubeIcon} // TODO - need an icon
-        title={
-            <>
-                <span className="text-muted">Auto-index record for commit</span>
-                <span className="ml-2">
-                    {index.projectRoot ? index.projectRoot.commit.abbreviatedOID : index.inputCommit.slice(0, 7)}
-                </span>
-            </>
-        }
-        actions={actions}
-        className={classNames('justify-content-end', className)}
-    />
+    <div className={classNames('d-flex flex-wrap align-items-center', className)}>
+        <h2 className="flex-grow-1">
+            <span className="text-muted">Auto-index record for commit</span>
+            <span className="ml-2">
+                {index.projectRoot ? index.projectRoot.commit.abbreviatedOID : index.inputCommit.slice(0, 7)}
+            </span>
+        </h2>
+        {actions}
+    </div>
 )

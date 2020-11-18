@@ -13,6 +13,8 @@ export const DockerStep: FunctionComponent<DockerStepProps> = ({ step }) => (
         <code>
             <strong>{step.image}</strong> {step.commands.join(' ')}
         </code>
-        <span className="text-muted">@</span>/{step.root}
+        <span className="float-right">
+            <span className="text-muted">executed in</span> /{step.root}
+        </span>
     </li>
 )

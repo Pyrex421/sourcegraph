@@ -1,5 +1,6 @@
 import { LoadingSpinner } from '@sourcegraph/react-loading-spinner'
 import * as H from 'history'
+import CheckIcon from 'mdi-react/CheckIcon'
 import React, { FunctionComponent, useCallback, useEffect, useMemo, useState } from 'react'
 import { Redirect, RouteComponentProps } from 'react-router'
 import { SchedulerLike, timer } from 'rxjs'
@@ -106,6 +107,7 @@ export const CodeIntelUploadPage: FunctionComponent<CodeIntelUploadPageProps> = 
                         actions={
                             <CodeIntelDeleteUpload deleteUpload={deleteUpload} deletionOrError={deletionOrError} />
                         }
+                        className="mb-2"
                     />
                     <CodeIntelStateBanner
                         state={uploadOrError.state}
@@ -121,26 +123,13 @@ export const CodeIntelUploadPage: FunctionComponent<CodeIntelUploadPageProps> = 
                             <CodeIntelUploadNode node={uploadOrError} now={now} summaryView={true} />
                         </div>
                     </div>
+                    {uploadOrError.isLatestForRepo && (
+                        <div className="alert alert-success action-container__alert">
+                            <CheckIcon className="icon-inline" /> This upload can answer queries for the tip of the
+                            default branch and are targets of cross-repository find reference operations.
+                        </div>
+                    )}
                     <Timeline node={uploadOrError} className="mb-3" />
-                    {/*
-                        TODO(efritz) - missing data
-
-                        <td>
-                            Is latest for repo{' '}
-                            <small data-tooltip="This upload can answer queries for the tip of the default branch and are targets of cross-repository find reference operations.">
-                                <InfoCircleOutlineIcon className="icon-inline cursor-pointer" />
-                            </small>
-                        </td>
-                        <td>
-                            {uploadOrError.finishedAt ? (
-                                <span className="test-is-latest-for-repo">
-                                    {uploadOrError.isLatestForRepo ? 'yes' : 'no'}
-                                </span>
-                            ) : (
-                                <span className="text-muted">Upload has not yet completed.</span>
-                            )}
-                        </td>
-                    */}
                 </>
             )}
         </div>
